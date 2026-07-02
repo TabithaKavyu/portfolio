@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabitha Kavyu · Voice, Story, Presence</title>
+<meta name="description" content="Tabitha Kavyu is a community and learner success leader from Nairobi, Kenya. She builds people first, then communities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Archivo:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wine:#3E0F1F;
+  --wine-deep:#2A0A15;
+  --paper:#FBF5EC;
+  --paper-dim:#F3EADC;
+  --brass:#C08A2D;
+  --brass-soft:#D9B36A;
+  --ink:#241418;
+  --ink-soft:#5C4A4F;
+  --max:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Archivo',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--brass-soft);color:var(--wine-deep)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+a{color:inherit}
+h1,h2,h3,.serif{font-family:'Fraunces',serif}
+
+/* ---------- Nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(62,15,31,.92);backdrop-filter:blur(8px);
+  color:var(--paper);
+}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+nav .logo{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;letter-spacing:.02em;text-decoration:none}
+nav .logo span{color:var(--brass-soft)}
+nav ul{display:flex;gap:26px;list-style:none}
+nav ul a{text-decoration:none;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;opacity:.85;transition:opacity .2s}
+nav ul a:hover,nav ul a:focus-visible{opacity:1;color:var(--brass-soft)}
+@media(max-width:760px){nav ul{display:none}}
+
+/* ---------- Hero ---------- */
+header{
+  background:var(--wine);
+  color:var(--paper);
+  padding:150px 0 90px;
+  position:relative;
+  overflow:hidden;
+}
+header::after{
+  content:"";position:absolute;inset:auto -10% -55% -10%;height:70%;
+  background:radial-gradient(ellipse at center,rgba(192,138,45,.22),transparent 65%);
+  pointer-events:none;
+}
+.eyebrow{
+  font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--brass-soft);margin-bottom:22px;font-weight:600;
+}
+header h1{
+  font-size:clamp(2.4rem,6vw,4.6rem);
+  font-weight:560;line-height:1.06;letter-spacing:-.01em;
+  max-width:17ch;
+}
+header h1 em{
+  font-style:italic;color:var(--brass-soft);font-weight:480;
+}
+.hero-why{
+  margin-top:36px;max-width:56ch;font-size:1.08rem;
+  color:rgba(251,245,236,.85);
+}
+.hero-why strong{color:var(--paper);font-weight:600}
+.hero-meta{
+  margin-top:44px;display:flex;flex-wrap:wrap;gap:14px 34px;
+  font-size:.85rem;letter-spacing:.05em;color:rgba(251,245,236,.72);
+}
+.hero-meta div b{display:block;font-family:'Fraunces',serif;font-size:1.55rem;color:var(--paper);font-weight:560;letter-spacing:0}
+
+/* ---------- Section scaffolding ---------- */
+section{padding:88px 0}
+.kicker{
+  display:flex;align-items:center;gap:16px;margin-bottom:14px;
+}
+.kicker span{
+  font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--brass);
+}
+.kicker::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--brass-soft),transparent)}
+h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:560;line-height:1.15;max-width:22ch;margin-bottom:18px}
+.lede{max-width:62ch;color:var(--ink-soft);font-size:1.05rem}
+
+/* ---------- Chapters ---------- */
+#story{background:var(--paper)}
+.chapters{margin-top:56px;position:relative}
+.chapters::before{
+  content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(var(--brass-soft),var(--wine));
+}
+.chapter{
+  position:relative;padding:0 0 60px 58px;
+}
+.chapter:last-child{padding-bottom:0}
+.chapter::before{
+  content:"";position:absolute;left:3px;top:6px;width:18px;height:18px;border-radius:50%;
+  background:var(--paper);border:3px solid var(--brass);
+}
+.chapter .ch-label{
+  font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:6px;
+}
+.chapter h3{font-size:1.45rem;font-weight:600;margin-bottom:12px;line-height:1.25}
+.chapter p{max-width:62ch;color:var(--ink-soft);margin-bottom:12px}
+.chapter p:last-child{margin-bottom:0}
+.chapter .fact{
+  display:inline-block;background:var(--paper-dim);border:1px solid rgba(192,138,45,.35);
+  border-radius:100px;padding:4px 14px;font-size:.82rem;font-weight:600;color:var(--wine);
+  margin:4px 8px 4px 0;
+}
+
+/* ---------- Numbers band ---------- */
+#numbers{background:var(--wine);color:var(--paper);padding:70px 0}
+#numbers .grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px;
+}
+#numbers b{
+  display:block;font-family:'Fraunces',serif;font-size:2.6rem;font-weight:560;color:var(--brass-soft);line-height:1;
+}
+#numbers small{display:block;margin-top:10px;font-size:.88rem;color:rgba(251,245,236,.78);line-height:1.5}
+#numbers .note{margin-top:34px;font-size:.8rem;color:rgba(251,245,236,.55);max-width:70ch}
+
+/* ---------- Speaking ---------- */
+#speaking{background:var(--paper-dim)}
+.talks{margin-top:48px;display:grid;gap:0}
+.talk{
+  display:grid;grid-template-columns:110px 1fr;gap:24px;
+  padding:26px 0;border-bottom:1px solid rgba(62,15,31,.14);
+}
+.talk:first-child{border-top:1px solid rgba(62,15,31,.14)}
+.talk .yr{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:560;color:var(--brass)}
+.talk h3{font-size:1.12rem;font-weight:600}
+.talk p{color:var(--ink-soft);font-size:.95rem;margin-top:4px;max-width:64ch}
+.talk .tag{
+  display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--wine);font-weight:600;margin-top:8px;
+}
+@media(max-width:600px){.talk{grid-template-columns:1fr;gap:6px}}
+
+/* ---------- Voices ---------- */
+#voices{background:var(--paper)}
+.quotes{margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px}
+.quote{
+  background:var(--paper-dim);border-left:4px solid var(--brass);
+  padding:28px 26px;border-radius:0 10px 10px 0;
+}
+.quote p{font-family:'Fraunces',serif;font-size:1.06rem;font-style:italic;line-height:1.55;color:var(--wine-deep)}
+.quote small{display:block;margin-top:16px;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+
+/* ---------- Writing & features ---------- */
+#writing{background:var(--wine-deep);color:var(--paper)}
+#writing .kicker span{color:var(--brass-soft)}
+#writing .lede{color:rgba(251,245,236,.8)}
+.pubs{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.pub{
+  border:1px solid rgba(217,179,106,.35);border-radius:12px;padding:24px;
+  text-decoration:none;transition:border-color .2s,transform .2s;display:block;
+}
+.pub:hover,.pub:focus-visible{border-color:var(--brass-soft);transform:translateY(-3px)}
+.pub .type{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-soft);font-weight:600}
+.pub h3{font-size:1.08rem;font-weight:600;margin:10px 0 8px;line-height:1.35}
+.pub p{font-size:.9rem;color:rgba(251,245,236,.75)}
+
+/* ---------- Values ---------- */
+#values{background:var(--paper)}
+.vals{margin-top:44px;display:flex;flex-wrap:wrap;gap:14px}
+.val{
+  background:var(--wine);color:var(--paper);border-radius:100px;
+  padding:12px 26px;font-family:'Fraunces',serif;font-size:1.05rem;font-weight:560;
+}
+.val:nth-child(even){background:transparent;color:var(--wine);border:2px solid var(--brass)}
+#values .after{margin-top:30px;max-width:62ch;color:var(--ink-soft)}
+
+/* ---------- Contact ---------- */
+footer{background:var(--wine);color:var(--paper);padding:90px 0 60px;text-align:left}
+footer h2{max-width:none;color:var(--paper)}
+footer h2 em{font-style:italic;color:var(--brass-soft)}
+.links{margin-top:32px;display:flex;flex-wrap:wrap;gap:16px}
+.links a{
+  text-decoration:none;border:1.5px solid var(--brass-soft);border-radius:100px;
+  padding:12px 26px;font-size:.9rem;font-weight:600;letter-spacing:.04em;
+  transition:background .2s,color .2s;
+}
+.links a:hover,.links a:focus-visible{background:var(--brass-soft);color:var(--wine-deep)}
+footer .fine{margin-top:56px;font-size:.78rem;color:rgba(251,245,236,.55)}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .pub:hover{transform:none}
+}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top">Tabitha <span>Kavyu</span></a>
+    <ul>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#speaking">Speaking</a></li>
+      <li><a href="#voices">Voices</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap">
+    <p class="eyebrow">Nairobi, Kenya · Community &amp; Learner Success</p>
+    <h1>I build <em>people</em> first. The communities follow.</h1>
+    <p class="hero-why">I exist to use my <strong>voice</strong>, my <strong>story</strong>, and my <strong>presence</strong> to encourage and guide people, especially those just starting out, so that they believe in themselves, take their next step, and know that someone like them already did it.</p>
+    <div class="hero-meta">
+      <div><b>20,000+</b>learners supported</div>
+      <div><b>11</b>cohorts, from cohort 1</div>
+      <div><b>6</b>countries reached</div>
+      <div><b>5+</b>years building</div>
+    </div>
+  </div>
+</header>
+
+<section id="story">
+  <div class="wrap">
+    <div class="kicker reveal"><span>The Story</span></div>
+    <h2 class="reveal">From a lab in Nairobi to leading learner success across a continent</h2>
+    <p class="lede reveal">Nobody handed me this path. I kept showing up, kept volunteering, kept speaking, and the rooms kept getting bigger. Here is how it happened.</p>
+
+    <div class="chapters">
+      <article class="chapter reveal">
+        <p class="ch-label">Chapter One · 2018 to 2020</p>
+        <h3>The student who kept going back</h3>
+        <p>Computer Science at the University of Nairobi. I walked into my first tech meetups understanding almost nothing. I kept going back anyway. Through the KamiLimu mentorship programme I found the pillar that would define my career: community engagement.</p>
+        <p>I became Developer Student Clubs Lead at UoN, an events organizer with GDG Nairobi, and a Moringa School Campus Ambassador. I learned that leadership is not about knowing everything. It is about a willingness to lead people in the direction you want to go, and learning right alongside them.</p>
+        <span class="fact">DSC Lead, University of Nairobi</span>
+        <span class="fact">GDG Nairobi organizer</span>
+        <span class="fact">KamiLimu Cohort 4.0 mentee</span>
+      </article>
+
+      <article class="chapter reveal">
+        <p class="ch-label">Chapter Two · 2020 to 2021</p>
+        <h3>Google noticed</h3>
+        <p>I discovered Crowdsource by Google at a Developer Student Clubs summit in Ghana and turned it into a mission: put Kenya, and Africa, on the map. I suggested the #30daysofCrowdsource challenge. Google rolled it out across Africa, Latin America, and Asia.</p>
+        <p>That energy became a rare contract role as Crowdsource Community Coordinator: the sole Kenya representative working with a team based in India, with access to the Google Nairobi office. I coordinated communities across 30+ universities in six East African countries, driving over 2 million contributions that improved products like Google Translate and Google Lens for African users. Google featured my story on the official Crowdsource blog.</p>
+        <span class="fact">2M+ contributions driven</span>
+        <span class="fact">30+ universities, 6 countries</span>
+        <span class="fact">Featured on Google's Crowdsource blog</span>
+      </article>
+
+      <article class="chapter reveal">
+        <p class="ch-label">Chapter Three · 2021 to 2024</p>
+        <h3>Building AltSchool's community from cohort one</h3>
+        <p>After a recruiting internship at TalentQL, where I supported 50+ placements with over 90% data accuracy, I joined AltSchool Africa and built its learner community from the very first cohort. SOE v1 alone was around 4,000 learners. Tinyuka 2023 brought 4,645 across three schools. Tinyuka 2024 added 5,374 more. I designed the onboarding, engagement, student leadership, and feedback systems that carried all of them.</p>
+        <p>The work was rarely glamorous. Following up with 1,500+ unpaid learners over Slack and email. Escalating 420+ payment issues in a single cohort. Hosting 31 events in one year, with a LinkedIn Optimization session drawing 694 attendees and a Financial Literacy session drawing 400. Onboarding 55 campus ambassadors whose referrals fed 301 community-led acquisitions through the Earn Program. It added up: a 59% payment conversion on follow-ups, ₦10 million recovered in ISA payments through one reminder campaign, and a community learners genuinely loved.</p>
+        <span class="fact">20,000+ learners, 11 cohorts</span>
+        <span class="fact">59% payment conversion</span>
+        <span class="fact">Employee of the Year &amp; Brand Ambassador, 2023</span>
+      </article>
+
+      <article class="chapter reveal">
+        <p class="ch-label">Chapter Four · 2024 to now</p>
+        <h3>Head of Learner Success</h3>
+        <p>In October 2024 I stepped up to lead both the Community and Customer Support teams. I cut average human response time from 45 minutes 39 seconds to 36 minutes 03 seconds, a 21% improvement. I built the systems that work even when I am not in the room: an 11-tab Community Content Playbook with a 30-week calendar and a library of 38 reusable motivation messages, the AltSchool Community HQ indexing all 46 team documents, and a Cohort Command Centre tracking the full lifecycle of 7 cohorts from admissions to graduation. Along the way I completed McKinsey Forward in 2025 and joined the Aspire Leaders Program in 2026.</p>
+        <p>Then came sTaRt, AltSchool's first flagship conference in Lagos. I owned speaker communications, agendas, and live coordination for an event that drew over 1,000 people in person, 6,700 on the livestream, and 1,000+ more on YouTube. Mid-event, our CEO stopped the programme, took the mic, and asked the room to clap for the person who made it happen.</p>
+        <span class="fact">21% faster support response</span>
+        <span class="fact">sTaRt Conference: 7,000+ reached</span>
+        <span class="fact">Leads Community + Support teams</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="numbers" aria-label="Impact numbers">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal"><b>20,000+</b><small>learners supported across 11 AltSchool cohorts, built from cohort 1</small></div>
+      <div class="reveal"><b>2M+</b><small>Crowdsource contributions driven across East Africa for Google</small></div>
+      <div class="reveal"><b>7,000+</b><small>people reached by the sTaRt Conference across in-person, livestream, and YouTube</small></div>
+      <div class="reveal"><b>1,714</b><small>learners in a single community session, one of 31 events hosted in 2024</small></div>
+    </div>
+    <p class="note">Every number here is verified. I do not do impressive-sounding claims I cannot defend.</p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="kicker reveal"><span>The Work, Up Close</span></div>
+    <h2 class="reveal">What building actually looks like</h2>
+    <p class="lede reveal">Titles tell you little. Here is a sample of real artifacts and real weeks, pulled straight from my working documents.</p>
+    <div class="quotes" style="margin-top:44px">
+      <div class="quote reveal">
+        <p>The Community Content Playbook: 11 tabs covering a 30-week content calendar, a 38-message Monday Motivations library, an 11-week Career Prep series, an 8-step elections playbook, and a 10-step graduation sequence. Built so any future team member can run the community without me.</p>
+        <small>Internal playbook, 2026</small>
+      </div>
+      <div class="quote reveal">
+        <p>One reminder email campaign to Cohort 1 on their ISA commitments recovered ₦10 million in payments. A targeted nudge to Karatu learners produced one of the highest single-day tuition payment records in months.</p>
+        <small>Revenue recovery, weekly reports</small>
+      </div>
+      <div class="quote reveal">
+        <p>A typical week: 163 learner touchpoints answered across DMs and email, a Monday email opened 555 times, a welcome webinar hosted for a new cohort, and a cross-team alignment meeting to fix the support workflow.</p>
+        <small>Week ending 12 December</small>
+      </div>
+      <div class="quote reveal">
+        <p>The Student Leaders Guide: responsibilities, communication standards, accountability, and growth paths for elected learner leaders, refined into a handbook that speaks to leaders directly. Paired with a Circle Leaders channel and monthly check-in structure for Baraka 2026.</p>
+        <small>Student leadership programme, 2026</small>
+      </div>
+      <div class="quote reveal">
+        <p>Partnered with Product and Engineering on the AltSchool Community App, designed so learners keep their community and its perks even after graduating. Announced it myself at the sTaRt Conference.</p>
+        <small>Product collaboration</small>
+      </div>
+      <div class="quote reveal">
+        <p>A New Year Reflection and Planning session for the Karatu cohort on habits, realistic goals, and owning your learning journey. Because retention is not a metric problem. It is a belief problem.</p>
+        <small>Learner engagement, January 2026</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="speaking">
+  <div class="wrap">
+    <div class="kicker reveal"><span>Speaking</span></div>
+    <h2 class="reveal">A journey of speaking and sharing</h2>
+    <p class="lede reveal">I started speaking on university campuses about imposter syndrome and Google Crowdsource. Now I get invited onto stages to talk about community, confidence, and building Africa's tech talent. Same voice. Bigger rooms.</p>
+
+    <div class="talks">
+      <div class="talk reveal">
+        <div class="yr">2020</div>
+        <div>
+          <h3>Open Source Festival (OSCAFest), Lagos</h3>
+          <p>My first international talk: "Open Source Contribution with Crowdsource." I flew to Nigeria as a final-year student and left with an audience that kept contributing long after I went home.</p>
+          <span class="tag">Conference talk</span>
+        </div>
+      </div>
+      <div class="talk reveal">
+        <div class="yr">2019–21</div>
+        <div>
+          <h3>University campus tours, East Africa</h3>
+          <p>Dozens of sessions across campuses in six countries: imposter syndrome, getting into tech, and contributing to Crowdsource. This is where I learned to hold a room.</p>
+          <span class="tag">Campus talks</span>
+        </div>
+      </div>
+      <div class="talk reveal">
+        <div class="yr">2021</div>
+        <div>
+          <h3>Community Managers Festival</h3>
+          <p>Spoke on community management practice, my first appearances speaking to fellow community professionals rather than students.</p>
+          <span class="tag">Industry event</span>
+        </div>
+      </div>
+      <div class="talk reveal">
+        <div class="yr">2022</div>
+        <div>
+          <h3>Google I/O Extended, Strathmore University, Nairobi</h3>
+          <p>Speaker and part of the GDG Nairobi organizing crew bringing Google's flagship developer event experience to Kenya.</p>
+          <span class="tag">Speaker + organizer</span>
+        </div>
+      </div>
+      <div class="talk reveal">
+        <div class="yr">2026</div>
+        <div>
+          <h3>Zindua School · Build Your Personal Tech Brand &amp; Network</h3>
+          <p>Helping data and software engineering students stand out in the hidden job market before their programme ends.</p>
+          <span class="tag">Guest speaker</span>
+        </div>
+      </div>
+      <div class="talk reveal">
+        <div class="yr">2026</div>
+        <div>
+          <h3>AltSchool Africa LinkedIn Live · Filling the Gap</h3>
+          <p>Panellist alongside Babatunde Akin-Moses, CEO of Sycamore, on how Africa can build job-ready tech talent at scale.</p>
+          <span class="tag">Panellist</span>
+        </div>
+      </div>
+      <div class="talk reveal">
+        <div class="yr">2026</div>
+        <div>
+          <h3>dotNexxt at GoMyCode · Stop Shrinking In Rooms You Earned</h3>
+          <p>On confidence, visibility, and owning your seat at the table. The talk closest to my why.</p>
+          <span class="tag">Featured session</span>
+        </div>
+      </div>
+      <div class="talk reveal">
+        <div class="yr">2026</div>
+        <div>
+          <h3>CMX Nigeria Summit</h3>
+          <p>Invited speaker at the summit for community professionals, backed by my CMX Community Management MBA.</p>
+          <span class="tag">Upcoming</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="voices">
+  <div class="wrap">
+    <div class="kicker reveal"><span>What Others Say</span></div>
+    <h2 class="reveal">The voices that keep me going</h2>
+    <div class="quotes">
+      <div class="quote reveal">
+        <p>"Tabby is the heartbeat of our community initiatives."</p>
+        <small>LinkedIn recommendation</small>
+      </div>
+      <div class="quote reveal">
+        <p>A learner once wrote to thank me for connecting them to a mentor for cloud computing. They said fear had clouded their mindset, and that one connection gave them the confidence to face their exam. That message still sits in my brag document.</p>
+        <small>AltSchool learner, on mentorship</small>
+      </div>
+      <div class="quote reveal">
+        <p>"A creator of welcoming environments."</p>
+        <small>KamiLimu community feature</small>
+      </div>
+      <div class="quote reveal">
+        <p>In December 2023, a colleague posted that I came all the way from Nairobi and left with two awards: Employee of the Year and Brand Ambassador. His word for it was well deserved. I am learning to agree.</p>
+        <small>AltSchool Africa awards, 2023</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="kicker reveal"><span>Writing &amp; Features</span></div>
+    <h2 class="reveal" style="color:var(--paper)">Where my story lives online</h2>
+    <p class="lede reveal">I write the way I speak: short, honest, and for the person one step behind me.</p>
+    <div class="pubs">
+      <a class="pub reveal" href="https://tabithakavyu.hashnode.dev" target="_blank" rel="noopener">
+        <span class="type">Article</span>
+        <h3>From Intern to Head of Learner Success: Five Years of Building From the Ground Up</h3>
+        <p>My 5-year work anniversary story, published on Medium, LinkedIn, and Hashnode.</p>
+      </a>
+      <a class="pub reveal" href="https://crowdsource.google.com/about/blog/community-spotlight-tabitha-kavyu/" target="_blank" rel="noopener">
+        <span class="type">Feature · Google</span>
+        <h3>Community Spotlight: Meet Tabitha Kavyu from Kenya</h3>
+        <p>Google's official Crowdsource blog told my story as a top contributor and community builder.</p>
+      </a>
+      <a class="pub reveal" href="https://kamilimu.medium.com/tabitha-kavyu-figuring-it-out-ea784b15598" target="_blank" rel="noopener">
+        <span class="type">Feature · KamiLimu</span>
+        <h3>Figuring It Out</h3>
+        <p>An interview on community, excellence, and choosing your own path in Computer Science.</p>
+      </a>
+      <a class="pub reveal" href="https://tabithakavyu.hashnode.dev/try-crowdsource-make-a-difference" target="_blank" rel="noopener">
+        <span class="type">Blog · Hashnode</span>
+        <h3>Try Crowdsource, Make a Difference</h3>
+        <p>The piece that captured why I spent nights climbing the Crowdsource leaderboard for Kenya.</p>
+      </a>
+      <a class="pub reveal" href="https://www.techprofiles.com.ng/tabitha-kavyu-building-vibrant-tech-communities-through-strategic-engagement-and-leadership/" target="_blank" rel="noopener">
+        <span class="type">Profile · TechProfiles Africa</span>
+        <h3>Building Vibrant Tech Communities</h3>
+        <p>A profile of my journey from grassroots tech initiatives to ecosystem-wide leadership.</p>
+      </a>
+      <a class="pub reveal" href="https://www.linkedin.com/company/hustleyangushow" target="_blank" rel="noopener">
+        <span class="type">Interview · Hustle Yangu Show</span>
+        <h3>The Story of Tabitha Kavyu</h3>
+        <p>A sit-down on my hustle, my career, and building community in Kenya's tech ecosystem.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="values">
+  <div class="wrap">
+    <div class="kicker reveal"><span>What Drives Me</span></div>
+    <h2 class="reveal">Five values. One direction.</h2>
+    <div class="vals reveal">
+      <span class="val">Faith</span>
+      <span class="val">Encouragement</span>
+      <span class="val">Authenticity</span>
+      <span class="val">Impact</span>
+      <span class="val">Growth</span>
+    </div>
+    <p class="after reveal">My work maps to two things bigger than me: quality education and reduced inequalities. I have spent five years giving people courage, visibility, and a next step. The current chapter is learning to turn those same gifts inward.</p>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="kicker reveal"><span style="color:var(--brass-soft)">Say Hello</span></div>
+    <h2 class="reveal">Have a room that needs a <em>voice</em>? Let's talk.</h2>
+    <p class="lede reveal" style="color:rgba(251,245,236,.8)">Open to speaking invitations and to roles in Developer Relations, Community, and Program Management at developer-focused companies. Remote-friendly, Africa-rooted, everywhere-ready.</p>
+    <div class="links reveal">
+      <a href="https://www.linkedin.com/in/tabithakavyu/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://x.com/TabithaKavyu" target="_blank" rel="noopener">X · @TabithaKavyu</a>
+      <a href="https://tabithakavyu.hashnode.dev" target="_blank" rel="noopener">Hashnode</a>
+      <a href="https://medium.com/@tabithakavyu4" target="_blank" rel="noopener">Medium</a>
+    </div>
+    <p class="fine">© 2026 Tabitha Kavyu · Nairobi, Kenya · Built on faith, encouragement, and receipts.</p>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
