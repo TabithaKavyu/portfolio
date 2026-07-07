@@ -85,6 +85,29 @@ header h1 em{
 }
 .hero-meta div b{display:block;font-family:'Fraunces',serif;font-size:1.55rem;color:var(--paper);font-weight:560;letter-spacing:0}
 
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero-photo{position:relative;justify-self:end}
+.hero-photo img{
+  width:100%;max-width:400px;display:block;border-radius:14px;
+  border:1px solid rgba(217,179,106,.45);
+  box-shadow:0 24px 60px rgba(0,0,0,.35);
+}
+.hero-photo::after{
+  content:"";position:absolute;inset:14px -14px -14px 14px;border:1.5px solid var(--brass-soft);
+  border-radius:14px;z-index:-1;opacity:.6;
+}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero-photo{justify-self:start}
+}
+.kit-grid{display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:start;margin-top:44px}
+.kit-photo img{width:100%;display:block;border-radius:12px;border:3px solid var(--brass-soft)}
+.kit-photo figcaption{font-size:.78rem;color:var(--ink-soft);margin-top:10px;letter-spacing:.04em}
+@media(max-width:760px){.kit-grid{grid-template-columns:1fr}}
+.values-grid{display:grid;grid-template-columns:1fr 320px;gap:52px;align-items:center}
+.values-photo img{width:100%;display:block;border-radius:14px;border:1px solid rgba(192,138,45,.4)}
+@media(max-width:860px){.values-grid{grid-template-columns:1fr}.values-photo{max-width:340px}}
+
 /* ---------- Section scaffolding ---------- */
 section{padding:88px 0}
 .kicker{
@@ -199,6 +222,42 @@ footer h2 em{font-style:italic;color:var(--brass-soft)}
 .links a:hover,.links a:focus-visible{background:var(--brass-soft);color:var(--wine-deep)}
 footer .fine{margin-top:56px;font-size:.78rem;color:rgba(251,245,236,.55)}
 
+.copy-btn{
+  font-family:'Archivo',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:700;color:var(--wine);background:transparent;border:1.5px solid var(--brass);
+  border-radius:100px;padding:6px 16px;cursor:pointer;transition:background .2s,color .2s;
+}
+.copy-btn:hover{background:var(--brass);color:var(--paper)}
+
+.vgroup{margin-top:48px}
+.vgroup h3{font-size:1.15rem;font-weight:600;color:var(--wine);margin-bottom:6px}
+.vgroup .gnote{font-size:.9rem;color:var(--ink-soft);margin-bottom:20px;max-width:64ch}
+.vidgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.vidcard{
+  display:block;text-decoration:none;background:var(--paper);
+  border:1px solid rgba(62,15,31,.12);border-radius:12px;overflow:hidden;
+  transition:transform .2s,box-shadow .2s;
+}
+.vidcard:hover,.vidcard:focus-visible{transform:translateY(-4px);box-shadow:0 14px 34px rgba(62,15,31,.16)}
+.vthumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--wine-deep)}
+.vthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.vthumb::after{
+  content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:0;height:0;border-style:solid;border-width:11px 0 11px 19px;
+  border-color:transparent transparent transparent var(--paper);
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));
+}
+.vthumb::before{
+  content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:52px;height:52px;border-radius:50%;background:rgba(62,15,31,.82);
+}
+.vidcard .vbody{padding:14px 16px 16px}
+.vidcard .vbody h4{font-family:'Archivo',sans-serif;font-size:.95rem;font-weight:600;line-height:1.35;color:var(--ink)}
+.vidcard .vbody span{
+  display:inline-block;margin-top:8px;font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--brass);font-weight:700;
+}
+
 /* ---------- Reveal ---------- */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -219,8 +278,9 @@ footer .fine{margin-top:56px;font-size:.78rem;color:rgba(251,245,236,.55)}
       <li><a href="#story">Story</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#speaking">Speaking</a></li>
-      <li><a href="#voices">Voices</a></li>
+      <li><a href="#speakerkit">Speaker Kit</a></li>
       <li><a href="#writing">Writing</a></li>
+      <li><a href="#oncamera">On Camera</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -228,14 +288,21 @@ footer .fine{margin-top:56px;font-size:.78rem;color:rgba(251,245,236,.55)}
 
 <header id="top">
   <div class="wrap">
-    <p class="eyebrow">Nairobi, Kenya · Community &amp; Learner Success</p>
-    <h1>I build <em>people</em> first. The communities follow.</h1>
-    <p class="hero-why">I exist to use my <strong>voice</strong>, my <strong>story</strong>, and my <strong>presence</strong> to encourage and guide people, especially those just starting out, so that they believe in themselves, take their next step, and know that someone like them already did it.</p>
-    <div class="hero-meta">
-      <div><b>20,000+</b>learners supported</div>
-      <div><b>11</b>cohorts, from cohort 1</div>
-      <div><b>6</b>countries reached</div>
-      <div><b>5+</b>years building</div>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Nairobi, Kenya · Community &amp; Learner Success</p>
+        <h1>I build <em>people</em> first. The communities follow.</h1>
+        <p class="hero-why">I exist to use my <strong>voice</strong>, my <strong>story</strong>, and my <strong>presence</strong> to encourage and guide people — especially those just starting out — so that they believe in themselves, take their next step, and know that someone like them already did it.</p>
+        <div class="hero-meta">
+          <div><b>20,000+</b>learners supported</div>
+          <div><b>11</b>cohorts, from cohort 1</div>
+          <div><b>6</b>countries reached</div>
+          <div><b>5+</b>years building</div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="images/tabby-seated-smile.jpg" alt="Tabitha Kavyu seated on a cream sofa in a wine-red top, smiling" width="933" height="1400">
+      </div>
     </div>
   </div>
 </header>
@@ -411,6 +478,35 @@ footer .fine{margin-top:56px;font-size:.78rem;color:rgba(251,245,236,.55)}
   </div>
 </section>
 
+<section id="speakerkit" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="kicker reveal"><span>Speaker Kit</span></div>
+    <h2 class="reveal">Inviting me to speak? Everything you need is here.</h2>
+    <p class="lede reveal">Grab a ready-to-use bio below and headshots from my press kit. No back-and-forth emails needed.</p>
+
+    <div class="kit-grid">
+      <figure class="kit-photo reveal">
+        <img src="images/tabby-headshot-crop.jpg" alt="Tabitha Kavyu headshot, arms crossed, wine-red top" width="1000" height="1250">
+        <figcaption>Official headshot · more in the press kit below</figcaption>
+      </figure>
+      <div style="display:grid;gap:26px">
+      <div class="quote reveal" style="border-radius:10px">
+        <p style="font-style:normal;font-family:'Archivo',sans-serif;font-size:.95rem;color:var(--ink)" id="bio-short">Tabitha Kavyu is a community and learner success leader from Nairobi, Kenya. As Head of Learner Success at AltSchool Africa, she has supported 20,000+ learners across 11 cohorts. Previously, she coordinated Google Crowdsource communities across six East African countries, driving over 2 million contributions. She speaks on community, confidence, and building Africa's tech talent.</p>
+        <small style="display:flex;align-items:center;justify-content:space-between;gap:12px">Short bio · for event programmes <button class="copy-btn" data-target="bio-short">Copy</button></small>
+      </div>
+      <div class="quote reveal" style="border-radius:10px">
+        <p style="font-style:normal;font-family:'Archivo',sans-serif;font-size:.95rem;color:var(--ink)" id="bio-full">Tabitha Kavyu is a community and learner success leader from Nairobi, Kenya, with over five years of experience building tech communities across Africa. As Head of Learner Success at AltSchool Africa, she leads the Community and Customer Support teams and has supported more than 20,000 learners across 11 cohorts, having built the community from its very first cohort. Before AltSchool, she served as Community Coordinator for Crowdsource by Google, the sole Kenya representative coordinating communities across 30+ universities in six East African countries and driving over 2 million contributions that improved Google products for African users. Her community leadership spans GDG Nairobi, Open Source Community Africa Nairobi, and the Google Developer Student Clubs. She holds a BSc in Computer Science from the University of Nairobi, a CMX Community Management MBA, and is an alumna of McKinsey Forward and the Aspire Leaders Program. She exists to use her voice, her story, and her presence to encourage people just starting out, so they believe in themselves, take their next step, and know that someone like them already did it.</p>
+        <small style="display:flex;align-items:center;justify-content:space-between;gap:12px">Full bio · for speaker pages <button class="copy-btn" data-target="bio-full">Copy</button></small>
+      </div>
+      </div>
+    </div>
+
+    <div class="links reveal" style="margin-top:32px">
+      <a href="https://drive.google.com/drive/folders/1tyiOmCiuwM_Bvn85-pPIxfWqP-Fyycw5?usp=drive_link" target="_blank" rel="noopener" style="border-color:var(--brass);color:var(--wine)">Press Kit · Headshots &amp; Photos</a>
+    </div>
+  </div>
+</section>
+
 <section id="voices">
   <div class="wrap">
     <div class="kicker reveal"><span>What Others Say</span></div>
@@ -472,22 +568,140 @@ footer .fine{margin-top:56px;font-size:.78rem;color:rgba(251,245,236,.55)}
         <h3>The Story of Tabitha Kavyu</h3>
         <p>A sit-down on my hustle, my career, and building community in Kenya's tech ecosystem.</p>
       </a>
+      <a class="pub reveal" href="https://communitymusings.substack.com/p/career-choices-tough-days-self-doubt" target="_blank" rel="noopener">
+        <span class="type">Interview · Community Musings</span>
+        <h3>Career Choices, Tough Days, Self-doubt &amp; Listening</h3>
+        <p>A long-form conversation on thriving as a community leader: imposter syndrome, hard days, and carving your own path.</p>
+      </a>
+      <a class="pub reveal" href="https://x.com/devrelcomafrica/status/1803047935652859946" target="_blank" rel="noopener">
+        <span class="type">Feature · DevRel Community Africa</span>
+        <h3>Community Spotlight</h3>
+        <p>Recognized by DevRel Community Africa for community leadership across the ecosystem.</p>
+      </a>
+      <a class="pub reveal" href="https://www.linkedin.com/posts/altschoolafrica_well-this-is-all-part-of-the-scriptto-personally-activity-7284479298663550976-7Z2x" target="_blank" rel="noopener">
+        <span class="type">Feature · AltSchool Africa</span>
+        <h3>"All part of the script"</h3>
+        <p>AltSchool Africa's own channels celebrating the person behind the community.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="oncamera" style="background:var(--paper-dim)">
+  <div class="wrap">
+    <div class="kicker reveal"><span>On Camera</span></div>
+    <h2 class="reveal">Interviews, stages, campaigns, and classrooms</h2>
+    <p class="lede reveal">I am comfortable on camera and in front of a room: interviewed, MCing, fronting brand campaigns, and teaching. Click any video to watch.</p>
+
+    <div class="vgroup reveal">
+      <h3>Interviews</h3>
+      <p class="gnote">Long-form conversations about my journey, told for the person one step behind me.</p>
+      <div class="vidgrid">
+        <a class="vidcard" href="https://youtu.be/EToAjnB10JI" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/EToAjnB10JI/hqdefault.jpg" alt="Willing to Learn, Ready to Fail interview thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>Willing to Learn, Ready to Fail: Tabitha's Honest Tech Story</h4><span>Young Techiez · 2025</span></div>
+        </a>
+        <a class="vidcard" href="https://youtu.be/MtoZHjJIPYs" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/MtoZHjJIPYs/hqdefault.jpg" alt="Building A Tech Career From Africa interview thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>Building A Tech Career From Africa ft. Tabitha Kavyu</h4><span>Interview</span></div>
+        </a>
+        <a class="vidcard" href="https://youtu.be/0ikWBHXd7o4" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/0ikWBHXd7o4/hqdefault.jpg" alt="Fireside Chat MyTechJourney thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>Fireside Chat · #MyTechJourney Series</h4><span>Interview · 2022</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="vgroup reveal">
+      <h3>MC &amp; community stages</h3>
+      <p class="gnote">GDG Nairobi trusted me with the mic: MCing sessions, opening recaps, and hosting the Pre-DevFest series.</p>
+      <div class="vidgrid">
+        <a class="vidcard" href="https://youtu.be/QBfh1XJ4JX0" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/QBfh1XJ4JX0/hqdefault.jpg" alt="Build with AI Nairobi Google I/O Highlights 2025 thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>Build with AI Nairobi: Google I/O Highlights 2025</h4><span>MC + recap intro</span></div>
+        </a>
+        <a class="vidcard" href="https://youtu.be/BMymO7dAer4" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/BMymO7dAer4/hqdefault.jpg" alt="BuildWithAI Nairobi 2026 Agentathon thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>BuildWithAI Nairobi 2026 Agentathon</h4><span>Recap intro</span></div>
+        </a>
+        <a class="vidcard" href="https://www.youtube.com/live/ewlgiaHigO4" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/ewlgiaHigO4/hqdefault.jpg" alt="Pre-DevFest Series with Tabby thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>Pre-DevFest Series with Tabby</h4><span>Host · live session</span></div>
+        </a>
+        <a class="vidcard" href="https://youtu.be/sKed5DEmPjI" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/sKed5DEmPjI/hqdefault.jpg" alt="Pre-DevFest Nairobi 2022 Series thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>Pre-DevFest Nairobi 2022 Series</h4><span>GDG Nairobi</span></div>
+        </a>
+        <a class="vidcard" href="https://youtu.be/WAJ75tkPY8A" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/WAJ75tkPY8A/hqdefault.jpg" alt="Google I/O Extended Nairobi 2022 highlights thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>Google I/O Extended Nairobi 2022 · Highlights</h4><span>Featured from 2:40</span></div>
+        </a>
+        <a class="vidcard" href="https://youtu.be/Y_3SWTOEp98" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/Y_3SWTOEp98/hqdefault.jpg" alt="DevFest Nairobi 2022 interviews thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>DevFest Nairobi 2022 · Interviews</h4><span>GDG Nairobi</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="vgroup reveal">
+      <h3>The face of AltSchool Africa's campaigns</h3>
+      <p class="gnote">When AltSchool launched in Kenya and ran its flagship campaigns, I was the one on camera. Also on <a href="https://www.instagram.com/reel/DFxSHthIsgI/" target="_blank" rel="noopener" style="color:var(--wine);font-weight:600">Instagram</a> and <a href="https://www.linkedin.com/posts/altschoolafrica_hey-you-tabby-has-a-question-for-you-activity-7293594602756857858-3fcM" target="_blank" rel="noopener" style="color:var(--wine);font-weight:600">LinkedIn</a>.</p>
+      <div class="vidgrid">
+        <a class="vidcard" href="https://youtu.be/YCbaTavKMjY" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/YCbaTavKMjY/hqdefault.jpg" alt="AltSchool Africa just launched in Kenya ad thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>AltSchool Africa Just Launched in Kenya</h4><span>Campaign face</span></div>
+        </a>
+        <a class="vidcard" href="https://youtu.be/KLZRAezqokY" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/KLZRAezqokY/hqdefault.jpg" alt="Apply to School of Product ad thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>AltSchool Is in Kenya: Apply to School of Product</h4><span>Campaign face</span></div>
+        </a>
+        <a class="vidcard" href="https://youtu.be/qNzvCtsCQvU" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/qNzvCtsCQvU/hqdefault.jpg" alt="Women can be cybersecurity experts too ad thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>Women Can Be Cybersecurity Experts Too</h4><span>Campaign face</span></div>
+        </a>
+        <a class="vidcard" href="https://youtu.be/O01Ga7z_VrA" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/O01Ga7z_VrA/hqdefault.jpg" alt="Join us at sTaRt Conference ad thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>Join Us at the sTaRt Conference</h4><span>Campaign face</span></div>
+        </a>
+        <a class="vidcard" href="https://youtu.be/XwmC-lXBXj4" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/XwmC-lXBXj4/hqdefault.jpg" alt="sTaRt 2025 conference highlights thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>sTaRt 2025 Conference · Highlights</h4><span>The event I executed</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="vgroup reveal">
+      <h3>Teaching</h3>
+      <p class="gnote">A Computer Science degree put to work: breaking down programming fundamentals for beginners.</p>
+      <div class="vidgrid">
+        <a class="vidcard" href="https://youtu.be/23uU2v9pqco" target="_blank" rel="noopener">
+          <div class="vthumb"><img src="https://img.youtube.com/vi/23uU2v9pqco/hqdefault.jpg" alt="Introduction to programming tutorial thumbnail" loading="lazy"></div>
+          <div class="vbody"><h4>Introduction to Programming: Variables &amp; Data Types</h4><span>Instructor</span></div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="values">
   <div class="wrap">
-    <div class="kicker reveal"><span>What Drives Me</span></div>
-    <h2 class="reveal">Five values. One direction.</h2>
-    <div class="vals reveal">
-      <span class="val">Faith</span>
-      <span class="val">Encouragement</span>
-      <span class="val">Authenticity</span>
-      <span class="val">Impact</span>
-      <span class="val">Growth</span>
+    <div class="values-grid">
+      <div>
+        <div class="kicker reveal"><span>What Drives Me</span></div>
+        <h2 class="reveal">Five values. One direction.</h2>
+        <div class="vals reveal">
+          <span class="val">Faith</span>
+          <span class="val">Encouragement</span>
+          <span class="val">Authenticity</span>
+          <span class="val">Impact</span>
+          <span class="val">Growth</span>
+        </div>
+        <p class="after reveal">My work maps to two things bigger than me: quality education and reduced inequalities. I have spent five years giving people courage, visibility, and a next step. The current chapter is learning to turn those same gifts inward.</p>
+      </div>
+      <div class="values-photo reveal">
+        <img src="images/tabby-standing.jpg" alt="Tabitha Kavyu standing in a wine-red top and white trousers" width="933" height="1400">
+      </div>
     </div>
-    <p class="after reveal">My work maps to two things bigger than me: quality education and reduced inequalities. I have spent five years giving people courage, visibility, and a next step. The current chapter is learning to turn those same gifts inward.</p>
   </div>
 </section>
 
@@ -509,6 +723,15 @@ footer .fine{margin-top:56px;font-size:.78rem;color:rgba(251,245,236,.55)}
 <script>
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('.copy-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const txt=document.getElementById(btn.dataset.target).innerText;
+    navigator.clipboard.writeText(txt).then(()=>{
+      const old=btn.textContent;btn.textContent='Copied!';
+      setTimeout(()=>btn.textContent=old,1600);
+    });
+  });
+});
 </script>
 </body>
 </html>
