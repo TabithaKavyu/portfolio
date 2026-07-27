@@ -155,6 +155,14 @@ h2{font-size:clamp(1.7rem,3.3vw,2.4rem);font-weight:560;line-height:1.16;max-wid
 .pub h3{font-size:1.03rem;font-weight:600;margin:9px 0 8px;line-height:1.35}
 .pub p{font-size:.88rem;color:rgba(251,245,236,.75)}
 .pub .alt{display:inline-block;margin-top:9px;font-size:.77rem;color:var(--brass-soft);font-weight:600}
+.pub-dual{border:1px solid rgba(217,179,106,.32);border-radius:12px;padding:23px;transition:border-color .2s}
+.pub-dual:hover{border-color:var(--brass-soft)}
+.pub-dual .type{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-soft);font-weight:700}
+.pub-dual h3{font-size:1.03rem;font-weight:600;margin:9px 0 8px;line-height:1.35}
+.pub-dual p{font-size:.88rem;color:rgba(251,245,236,.75)}
+.plinks{margin-top:14px;display:flex;flex-wrap:wrap;gap:9px}
+.plinks a{text-decoration:none;border:1.5px solid rgba(217,179,106,.5);border-radius:100px;padding:6px 16px;font-size:.76rem;font-weight:700;letter-spacing:.05em;color:var(--brass-soft);transition:background .2s,color .2s}
+.plinks a:hover,.plinks a:focus-visible{background:var(--brass-soft);color:var(--wine-deep)}
 
 /* on camera */
 #oncamera{background:var(--paper-dim)}
@@ -494,18 +502,24 @@ footer .fine{margin-top:50px;font-size:.77rem;color:rgba(251,245,236,.55)}
     <div class="kicker reveal"><span>Writing</span></div>
     <h2 class="reveal">Where my thinking lives</h2>
     <div class="pubs">
-      <a class="pub reveal" href="https://medium.com/@tabithakavyu4/a-case-study-transforming-learner-retention-from-a-community-problem-into-an-organizational-8b503f43f48e" target="_blank" rel="noopener">
+      <div class="pub-dual reveal">
         <span class="type">Case Study</span>
         <h3>Transforming Learner Retention from a Community Problem into an Organisational Responsibility</h3>
         <p>The full thinking behind Transformation Two, written out.</p>
-        <span class="alt">Also on LinkedIn →</span>
-      </a>
-      <a class="pub reveal" href="https://www.linkedin.com/pulse/from-intern-head-learner-success-5-years-building-ground-kavyu-d8onf" target="_blank" rel="noopener">
+        <div class="plinks">
+          <a href="https://medium.com/@tabithakavyu4/a-case-study-transforming-learner-retention-from-a-community-problem-into-an-organizational-8b503f43f48e" target="_blank" rel="noopener">Read on Medium</a>
+          <a href="https://www.linkedin.com/pulse/case-study-transforming-learner-retention-from-community-kavyu-idwqf" target="_blank" rel="noopener">Read on LinkedIn</a>
+        </div>
+      </div>
+      <div class="pub-dual reveal">
         <span class="type">Article</span>
         <h3>From Intern to Head of Learner Success: 5 Years of Building From the Ground Up</h3>
         <p>My five-year work anniversary story.</p>
-        <span class="alt">Also on Medium →</span>
-      </a>
+        <div class="plinks">
+          <a href="https://medium.com/@tabithakavyu4/from-intern-to-head-of-learner-success-5-years-of-building-from-the-ground-up-16055dcbd049" target="_blank" rel="noopener">Read on Medium</a>
+          <a href="https://www.linkedin.com/pulse/from-intern-head-learner-success-5-years-building-ground-kavyu-d8onf" target="_blank" rel="noopener">Read on LinkedIn</a>
+        </div>
+      </div>
       <a class="pub reveal" href="https://tabithakavyu.hashnode.dev/the-reality-of-imposter-syndrome" target="_blank" rel="noopener">
         <span class="type">Essay</span>
         <h3>The Reality of Imposter Syndrome</h3>
