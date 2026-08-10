@@ -76,9 +76,12 @@ h2{font-size:clamp(1.7rem,3.3vw,2.4rem);font-weight:560;line-height:1.16;max-wid
 
 /* philosophy */
 #philosophy{background:var(--paper-dim)}
-.phil{margin-top:34px;max-width:64ch}
+.phil-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start;margin-top:8px}
+@media(max-width:900px){.phil-grid{grid-template-columns:1fr;gap:28px}}
+.phil-lead p{font-family:'Fraunces',serif;font-size:clamp(1.35rem,2.4vw,1.7rem);font-style:italic;color:var(--wine);line-height:1.4}
+.phil-lead .rule{width:60px;height:3px;background:var(--brass);margin-top:22px;border-radius:2px}
+.phil{max-width:none}
 .phil p{margin-bottom:16px;font-size:1.05rem;color:var(--ink-soft)}
-.phil p.big{font-family:'Fraunces',serif;font-size:1.45rem;font-style:italic;color:var(--wine);line-height:1.42}
 .phil p:last-child{margin-bottom:0}
 
 /* focus cards */
@@ -124,18 +127,18 @@ h2{font-size:clamp(1.7rem,3.3vw,2.4rem);font-weight:560;line-height:1.16;max-wid
 
 /* speaking */
 #speaking{background:var(--paper-dim)}
+.trusted{margin-top:30px}
+.trusted p.label{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:18px}
+.logos{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.logos .tile{background:#fff;border:1px solid rgba(62,15,31,.1);border-radius:10px;height:62px;padding:10px 18px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(62,15,31,.06);transition:transform .22s,box-shadow .22s}
+.logos .tile:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(62,15,31,.14)}
+.logos .tile img{height:100%;width:auto;max-width:130px;object-fit:contain;display:block}
+@media(max-width:600px){.logos .tile{height:52px;padding:8px 14px}}
+.recent{margin-top:22px;font-size:.98rem;color:var(--ink-soft);max-width:64ch}
+.recent strong{color:var(--wine);font-weight:600}
 .topics{margin-top:32px;display:flex;flex-wrap:wrap;gap:11px}
 .topic{background:var(--wine);color:var(--paper);border-radius:100px;padding:10px 22px;font-family:'Fraunces',serif;font-size:.98rem;font-weight:560}
 .topic:nth-child(even){background:transparent;color:var(--wine);border:2px solid var(--brass)}
-.talks{margin-top:42px}
-.talk{display:grid;grid-template-columns:105px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid rgba(62,15,31,.14);transition:padding-left .2s}
-.talk:first-child{border-top:1px solid rgba(62,15,31,.14)}
-.talk:hover{padding-left:8px}
-.talk .yr{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:560;color:var(--brass)}
-.talk h3{font-size:1.05rem;font-weight:600}
-.talk p{color:var(--ink-soft);font-size:.93rem;margin-top:4px;max-width:62ch}
-.talk .tag{display:inline-block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);font-weight:700;margin-top:8px}
-@media(max-width:600px){.talk{grid-template-columns:1fr;gap:5px}}
 
 /* speaker kit */
 #speakerkit{background:var(--paper)}
@@ -202,7 +205,7 @@ h2{font-size:clamp(1.7rem,3.3vw,2.4rem);font-weight:560;line-height:1.16;max-wid
 .quote small{display:block;margin-top:13px;font-size:.77rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
 
 /* about */
-#about{background:var(--paper-dim)}
+#about{background:var(--paper)}
 .about-grid{display:grid;grid-template-columns:1fr 320px;gap:46px;align-items:center}
 @media(max-width:880px){.about-grid{grid-template-columns:1fr}.about-photo{max-width:340px}}
 .about-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:14px;border:1px solid rgba(192,138,45,.4)}
@@ -251,12 +254,12 @@ footer .fine{margin-top:50px;font-size:.77rem;color:rgba(251,245,236,.55)}
     <a class="logo" href="#top">Tabitha <span>Kavyu</span></a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navlist">Menu</button>
     <ul id="navlist">
+      <li><a href="#about">About</a></li>
       <li><a href="#philosophy">Philosophy</a></li>
       <li><a href="#transformations">Work</a></li>
       <li><a href="#speaking">Speaking</a></li>
       <li><a href="#writing">Writing</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -282,15 +285,40 @@ footer .fine{margin-top:50px;font-size:.77rem;color:rgba(251,245,236,.55)}
   </div>
 </header>
 
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="kicker reveal"><span>About</span></div>
+        <h2 class="reveal">I'm Tabitha.</h2>
+        <div class="about-body">
+          <p class="reveal">I design customer-centred systems that help people succeed.</p>
+          <p class="reveal">Over the last five years I have worked across Customer Success, Community, Customer Experience and Learner Success, supporting more than 20,000 learners while helping organisations build better customer journeys. Before that I was the sole Kenya representative coordinating Google Crowdsource communities across 30+ universities in six East African countries, work that drove more than 2 million contributions.</p>
+          <p class="reveal">Today my work focuses on helping organisations listen better, design better experiences, and build systems that scale.</p>
+          <p class="reveal">Outside work I enjoy writing, mentoring and speaking about leadership, customer experience and purposeful work.</p>
+        </div>
+      </div>
+      <div class="about-photo reveal">
+        <img src="images/tabby-standing.jpg" alt="Tabitha Kavyu standing in a wine-red top" width="500" height="500">
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="philosophy">
   <div class="wrap">
     <div class="kicker reveal"><span>My Philosophy</span></div>
     <h2 class="reveal">Better systems create better experiences.</h2>
-    <div class="phil">
-      <p class="big reveal">Organisations rarely have people problems. They have system problems that people experience.</p>
-      <p class="reveal">It took me a while to get here. In my early years at AltSchool Africa, when a learner went quiet, I went after that learner. I'd send the message, make the call, and feel like I'd fixed something. Then it would happen again a few weeks later with someone else, at roughly the same point in the programme, and I'd do the whole thing over. I kept that up for a long time before I finally stopped chasing individuals and looked at where in the journey people were actually disappearing. It was nearly always the same place.</p>
-      <p class="reveal">That changed the question I ask when something goes wrong. Not who dropped it, but what made it so easy to drop. Support tickets don't pile up because a team stopped caring, they pile up because nobody ever built a path for the difficult ones. And when learners stop paying, it is almost never that they stopped wanting the thing they signed up for. Something in the experience made stopping feel like the reasonable choice, and there was nothing built to catch them at that moment.</p>
-      <p class="reveal">So what I keep coming back to is a single question: what would make success easier for the people we serve? It has shaped every project I have led since.</p>
+    <div class="phil-grid">
+      <div class="phil-lead reveal">
+        <p>Organisations rarely have people problems. They have system problems that people experience.</p>
+        <div class="rule"></div>
+      </div>
+      <div class="phil">
+        <p class="reveal">It took me a while to get here. In my early years at AltSchool Africa, when a learner went quiet, I went after that learner. I'd send the message, make the call, and feel like I'd fixed something. Then it would happen again a few weeks later with someone else, at roughly the same point in the programme, and I'd do the whole thing over. I kept that up for a long time before I finally stopped chasing individuals and looked at where in the journey people were actually disappearing. It was nearly always the same place.</p>
+        <p class="reveal">That changed the question I ask when something goes wrong. Not who dropped it, but what made it so easy to drop. Support tickets don't pile up because a team stopped caring, they pile up because nobody ever built a path for the difficult ones. And when learners stop paying, it is almost never that they stopped wanting the thing they signed up for. Something in the experience made stopping feel like the reasonable choice, and there was nothing built to catch them at that moment.</p>
+        <p class="reveal">So what I keep coming back to is a single question: what would make success easier for the people we serve? It has shaped every project I have led since.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -311,6 +339,10 @@ footer .fine{margin-top:50px;font-size:.77rem;color:rgba(251,245,236,.55)}
       <div class="card reveal">
         <h3>Voice of Customer</h3>
         <p>Turning scattered customer insight into decisions leadership can act on.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Community Strategy</h3>
+        <p>Building communities that scale: turning engagement into opportunity, access and ecosystem growth rather than activity for its own sake.</p>
       </div>
       <div class="card reveal">
         <h3>Leadership</h3>
@@ -449,36 +481,21 @@ footer .fine{margin-top:50px;font-size:.77rem;color:rgba(251,245,236,.55)}
 
     <p class="lede reveal" style="margin-top:22px">I take on community strategy, customer success, customer experience, Voice of Customer, leadership and influence without authority. If your audience needs any of those, I would like to hear from you.</p>
 
-    <div class="talks">
-      <div class="talk reveal">
-        <div class="yr">2026</div>
-        <div><h3>Alluvium · Influence Without Authority</h3><p>Delivered at their Knowledge Zone training meeting: how to lead, persuade and move work forward when nobody reports to you.</p><span class="tag">Corporate session</span></div>
+    <div class="trusted reveal">
+      <p class="label">Brands that trusted my voice at their events</p>
+      <div class="logos">
+        <div class="tile"><img src="images/logo-cmx-ibadan.png" alt="CMX Connect Ibadan" loading="lazy"></div>
+        <div class="tile"><img src="images/logo-cmx-lagos.png" alt="CMX Connect Lagos" loading="lazy"></div>
+        <div class="tile"><img src="images/logo-cmfest.png" alt="Community Managers Festival Africa" loading="lazy"></div>
+        <div class="tile"><img src="images/logo-dotnexxt.png" alt="dotNexxt" loading="lazy"></div>
+        <div class="tile"><img src="images/logo-alluvium.png" alt="Alluvium" loading="lazy"></div>
+        <div class="tile"><img src="images/logo-zindua.png" alt="Zindua School" loading="lazy"></div>
+        <div class="tile"><img src="images/logo-oscafest.png" alt="Open Source Festival" loading="lazy"></div>
+        <div class="tile"><img src="images/logo-altschool.png" alt="AltSchool Africa" loading="lazy"></div>
       </div>
-      <div class="talk reveal">
-        <div class="yr">2026</div>
-        <div><h3>CMX Nigeria Summit · Designing Communities that Scale</h3><p>Turning engagement into opportunity, access and ecosystem growth. Delivered to community professionals at the CMX summit.</p><span class="tag">Summit talk</span></div>
-      </div>
-      <div class="talk reveal">
-        <div class="yr">2026</div>
-        <div><h3>dotNexxt at GoMyCode · Stop Shrinking In Rooms You Earned</h3><p>On confidence, visibility and owning your seat at the table.</p><span class="tag">Featured session</span></div>
-      </div>
-      <div class="talk reveal">
-        <div class="yr">2026</div>
-        <div><h3>AltSchool Africa LinkedIn Live · Filling the Gap</h3><p>Panellist alongside Babatunde Akin-Moses, CEO of Sycamore, on building job-ready tech talent at scale.</p><span class="tag">Panellist</span></div>
-      </div>
-      <div class="talk reveal">
-        <div class="yr">2026</div>
-        <div><h3>Zindua School · Build Your Personal Tech Brand &amp; Network</h3><p>Helping data and software engineering students stand out in the hidden job market.</p><span class="tag">Guest speaker</span></div>
-      </div>
-      <div class="talk reveal">
-        <div class="yr">2022</div>
-        <div><h3>Google I/O Extended, Strathmore University, Nairobi</h3><p>Speaker and part of the GDG Nairobi organising crew.</p><span class="tag">Speaker + organiser</span></div>
-      </div>
-      <div class="talk reveal">
-        <div class="yr">2020</div>
-        <div><h3>Open Source Festival (OSCAFest), Lagos</h3><p>My first international talk: Open Source Contribution with Crowdsource. I flew to Nigeria as a final-year student.</p><span class="tag">Conference talk</span></div>
-      </div>
+      <p class="recent reveal">Most recently: <strong>Designing Communities that Scale</strong>, on turning engagement into opportunity, access and ecosystem growth, at the CMX Nigeria Summit.</p>
     </div>
+
   </div>
 </section>
 
@@ -528,6 +545,11 @@ footer .fine{margin-top:50px;font-size:.77rem;color:rgba(251,245,236,.55)}
           <a href="https://www.linkedin.com/pulse/from-intern-head-learner-success-5-years-building-ground-kavyu-d8onf" target="_blank" rel="noopener">Read on LinkedIn</a>
         </div>
       </div>
+      <a class="pub reveal" href="https://medium.com/@tabithakavyu4/surveys-dont-improve-organisations-decisions-do-bf4ffa9be916" target="_blank" rel="noopener">
+        <span class="type">Essay</span>
+        <h3>Surveys Don't Improve Organisations. Decisions Do.</h3>
+        <p>Why collecting feedback is the easy part, and what has to happen next for any of it to matter.</p>
+      </a>
       <a class="pub reveal" href="https://tabithakavyu.hashnode.dev/the-reality-of-imposter-syndrome" target="_blank" rel="noopener">
         <span class="type">Essay</span>
         <h3>The Reality of Imposter Syndrome</h3>
@@ -717,25 +739,6 @@ footer .fine{margin-top:50px;font-size:.77rem;color:rgba(251,245,236,.55)}
   </div>
 </section>
 
-<section id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div>
-        <div class="kicker reveal"><span>About</span></div>
-        <h2 class="reveal">I'm Tabitha.</h2>
-        <div class="about-body">
-          <p class="reveal">I design customer-centred systems that help people succeed.</p>
-          <p class="reveal">Over the last five years I have worked across Customer Success, Community, Customer Experience and Learner Success, supporting more than 20,000 learners while helping organisations build better customer journeys. Before that I was the sole Kenya representative coordinating Google Crowdsource communities across 30+ universities in six East African countries, work that drove more than 2 million contributions.</p>
-          <p class="reveal">Today my work focuses on helping organisations listen better, design better experiences, and build systems that scale.</p>
-          <p class="reveal">Outside work I enjoy writing, mentoring and speaking about leadership, customer experience and purposeful work.</p>
-        </div>
-      </div>
-      <div class="about-photo reveal">
-        <img src="images/tabby-standing.jpg" alt="Tabitha Kavyu standing in a wine-red top" width="500" height="500">
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="work">
   <div class="wrap">
